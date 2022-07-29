@@ -1,39 +1,39 @@
 export type Cars = {
-  items: [];
-  count: string | null;
+    items: [];
+    count: string | null;
 };
 
 export type Car = {
-  name: string;
-  color: string;
-  id: number;
+    name: string;
+    color: string;
+    id: number;
 };
 
 export type SimpleCar = {
-  name: string;
-  color: string;
+    name: string;
+    color: string;
 };
 
 export type Winners = {
-  items: Array<{
-    car: Car;
-    id: number;
-    time: number;
-    wins: number;
-  }>;
-  count: string | null;
+    items: Array<{
+        car: Car;
+        id: number;
+        time: number;
+        wins: number;
+    }>;
+    count: string | null;
 };
 
 export type Winner = {
-  id: number;
-  time: number;
-  wins: number;
+    id: number;
+    time: number;
+    wins: number;
 };
 
 export type Engine = { velocity: number; distance: number };
 
 export type DrivingStatus = {
-  success: boolean;
-  id: number;
-  time: number;
+    success: boolean;
+    id: number;
+    time: number;
 };
