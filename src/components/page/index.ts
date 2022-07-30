@@ -23,7 +23,7 @@ export const renderPage = (): void => {
         <div class="main__controls-game">
           <button class="main__button" id="button_race">RACE</button>
           <button class="main__button" id="button_reset">RESET</button>
-          <button class="main__button" id="button_create-cars">CREATE CARS</button>
+          <button class="main__button button_generate" id="button_generate-cars">GENERATE CARS</button>
         </div>
       </div>
       <div class="main__garage">${renderGarage()}</div>

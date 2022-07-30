@@ -3,6 +3,7 @@ import { renderPage } from './components/page';
 import { createCar, getCar, updateCar } from './services/api';
 import { renderGarage, updateGarage } from './components/garage';
 import elements from './utils/elements';
+import { generateCars } from './utils/generateCars';
 
 
 let selectedCar: { name: string; color: string; id: number };
@@ -10,7 +11,7 @@ let selectedCar: { name: string; color: string; id: number };
 renderPage();
 await updateGarage();
 
-const onSelectBtnClick = async (target: HTMLElement) => {
+const select = async (target: HTMLElement) => {
   const newName = document.getElementById('input__update-name') as HTMLInputElement;
   const newColor = document.getElementById(
     'input__update-color',
@@ -81,10 +82,27 @@ const onSelectBtnClick = async (target: HTMLElement) => {
   });
 }());
 
+const generate = async (event: MouseEvent) => {
+  const generateBtn = <HTMLButtonElement>event.target;
+  generateBtn.disabled = true;
+
+  const generatedCars = generateCars();
+
+  await Promise.all(generatedCars.map(async car => createCar(car)));
+  await updateGarage();
+  const garage = document.getElementById('main__garage') as HTMLDivElement;
+  garage.innerHTML = renderGarage();
+  generateBtn.disabled = false;
+};
+
 elements.body.addEventListener('click', async event => {
   const target = <HTMLElement>event.target;
 
   if (target.classList.contains('button_select')) {
-    onSelectBtnClick(target);
+    select(target);
+  }
+
+  if (target.classList.contains('button_generate')) {
+    generate(event);
   }
 });
