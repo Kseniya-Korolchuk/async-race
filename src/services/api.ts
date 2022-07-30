@@ -1,4 +1,4 @@
-import { Car, Cars, Engine, SimpleCar, Winner, Winners } from '../shared/types';
+import { Car, Cars, Engine, SimpleCar, Winner, Winners } from '../utils/types';
 
 const base = 'http://localhost:3000';
 
