@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: black;
+}
+
+.wrapper {
+
+}
+
+.main {
+
+}
+
+.main__setup {
+
+}
+
+.main__controls-view {
+
+}
+
+.main__button {
+
+}
+
+.main__form {
+
+}
+
+.main__input {
+
+}
+
+.color {
+
+}
+
+.input {
+
+}
+
+.main__controls-game {
+
+}
+
+.main__garage {
+
+}
+
+.main__win-message {
+
+}
+
+.hidden {
+
+}
+
+.main__pagination {
+
+}
+
+.winners-page {
+
+}
