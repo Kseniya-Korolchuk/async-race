@@ -1,6 +1,5 @@
 import './index.css';
 import { renderGarage } from '../garage';
-import { renderWinners } from '../winners';
 
 export const renderPage = (): void => {
   const mainPageMarkup = `
@@ -13,12 +12,12 @@ export const renderPage = (): void => {
         </div>
         <form class="main__form" id="form__create">
           <input class="main__input" id="input__create-name" type="text" required autocomplete="off"/>
-          <input class="color" id="input__create-color" name="color" type="color" value="#ffffff"/>
+          <input class="main__color" id="input__create-color" name="color" type="color" value="#ffffff"/>
           <button class="main__button" type="submit" id="button_create">CREATE</button>
         </form>
         <form class="main__form" id="form__update">
           <input class="input" id="input__update-name" type="text" disabled required autocomplete="off"/>
-          <input class="color" id="input__update-color" name="color" type="color" value="#ffffff" disabled/>
+          <input class="main__color" id="input__update-color" name="color" type="color" value="#ffffff" disabled/>
           <button class="main__button" type="submit" id="button_update" disabled >UPDATE</button>
         </form>
         <div class="main__controls-game">
@@ -35,7 +34,7 @@ export const renderPage = (): void => {
         <button class="main__button" id="button_prev">PREV</button>
         <button class="main__button" id="button_next">NEXT</button>
       </div>
-      <div id="page_winners" class="winners-page">${renderWinners()}</div>
+      <div id="page_winners" class="winners-page">renderWinners()}</div>
     </main>
   </div>
   `; 

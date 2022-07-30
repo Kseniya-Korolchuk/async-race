@@ -1,4 +1,4 @@
-
+import './index.css';
 
 export const сarImg = (color: string): string => `
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,12 @@ l-15 -73 3006 7 c1653 4 3007 8 3009 9 1 1 -8 37 -20 81 -19 67 -22 105 -22
 </g>
 </svg>`;
 
-export const renderCar = (id: number, name: string, color: string, isEngineStarted: boolean): string => 
+export const renderCar = ({
+    id, name, color, isEngineStarted
+  }: 
+  {
+    id: string; name: string; color: string; isEngineStarted: boolean;
+  }): string => 
   `<div class="car__btns_select-wrapper">
     <button class="main__button" id="button_select-${id}">SELECT</button>
     <button class="main__button" id="button_remove-${id}">REMOVE</button>
@@ -111,18 +116,20 @@ export const renderCar = (id: number, name: string, color: string, isEngineStart
   </div>
   <div class="car__strip">
     <div class="car__controls-wrapper">
+    <div class="car__way">
       <div class="main__car" id="car-${id}">
         ${сarImg(color)}
       </div>
+      <div class="finish" id="finish-${id}">
+        <img src="https://cdn-icons-png.flaticon.com/512/2149/2149431.png" alt="">
+      </div>
+    </div>
       <div class="car__engine-mod-wrapper">
         <button class="main__button" id="button_start-${id}" 
           ${isEngineStarted ? 'disabled' : ''}>START</button>
         <button class="main__button" id="button_stop-${id}" 
           ${!isEngineStarted ? 'disabled' : ''}>STOP</button>
       </div>
-    </div>
-    <div class="finish" id="finish-${id}">
-      <img src="https://acegif.com/wp-content/gifs/race-flag-4.gif" alt="">
     </div>
   </div>
 `;
