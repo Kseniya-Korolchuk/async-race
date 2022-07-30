@@ -110,7 +110,7 @@ export const renderCar = ({
     id: string; name: string; color: string; isEngineStarted: boolean;
   }): string => 
   `<div class="car__btns_select-wrapper">
-    <button class="main__button" id="button_select-${id}">SELECT</button>
+    <button class="main__button button_select" id="button_select-${id}">SELECT</button>
     <button class="main__button" id="button_remove-${id}">REMOVE</button>
     <span class="car__model">${name}</span>
   </div>
