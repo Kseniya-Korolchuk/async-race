@@ -51,6 +51,9 @@ const baseConfig = {
             },
         ],
     },
+    experiments: {
+        topLevelAwait: true
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
