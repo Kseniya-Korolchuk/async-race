@@ -1,6 +1,6 @@
 import './style.css';
 import { renderPage } from './components/page';
-import { createCar, getCar, updateCar } from './services/api';
+import { createCar, deleteCar, deleteWinner, getCar, updateCar } from './services/api';
 import { renderGarage, updateGarage } from './components/garage';
 import elements from './utils/elements';
 import { generateCars } from './utils/generateCars';
@@ -27,8 +27,15 @@ const select = async (target: HTMLElement) => {
   newColor.disabled = false;
 
   updateBtn.disabled = false;
+};
+
+const remove = async (target: HTMLElement) => {
+  const id = Number(target.id.split('button_remove-')[1]);
+  await deleteCar(id);
+  await deleteWinner(id);
   await updateGarage();
-  renderPage();
+  const garage = document.getElementById('main__garage') as HTMLDivElement;
+  garage.innerHTML = renderGarage();
 };
 
 (function () {
@@ -102,7 +109,13 @@ elements.body.addEventListener('click', async event => {
     select(target);
   }
 
+  if (target.classList.contains('button_remove')) {
+    remove(target);
+  }
+
   if (target.classList.contains('button_generate')) {
     generate(event);
+    
   }
+
 });
