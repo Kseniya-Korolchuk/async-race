@@ -95,6 +95,34 @@ const generate = async (event: MouseEvent) => {
     generateBtn.disabled = false;
 };
 
+const getPrevPage = async () => {
+    switch (store.view) {
+        case 'garage': {
+            store.carsPage -= 1;
+            await updateGarage();
+
+            const garage = document.querySelector('.main__garage') as HTMLDivElement;
+            garage.innerHTML = renderGarage();
+            break;
+        }
+        default:
+    }
+};
+
+const getNextPage = async () => {
+    switch (store.view) {
+        case 'garage': {
+            store.carsPage += 1;
+            await updateGarage();
+            const garage = document.querySelector('.main__garage') as HTMLDivElement;
+
+            garage.innerHTML = renderGarage();
+            break;
+        }
+        default:
+    }
+};
+
 elements.body.addEventListener('click', async (event) => {
     const target = <HTMLElement>event.target;
 
@@ -108,5 +136,13 @@ elements.body.addEventListener('click', async (event) => {
 
     if (target.classList.contains('button_generate')) {
         generate(event);
+    }
+
+    if (target.classList.contains('button_prev')) {
+        getPrevPage();
+    }
+
+    if (target.classList.contains('button_next')) {
+        getNextPage();
     }
 });
