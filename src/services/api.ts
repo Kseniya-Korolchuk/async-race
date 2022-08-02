@@ -46,18 +46,19 @@ export const updateCar = async (id: number, body: SimpleCar): Promise<void> =>
         })
     ).json();
 
-export const startEngine = async (id: number): Promise<Engine> => (await fetch(`${engine}?id=${id}&status=started`)).json();
+export const startEngine = async (id: number): Promise<Engine> =>
+    (await fetch(`${engine}?id=${id}&status=started`)).json();
 
-export const stopEngine = async (id: number): Promise<Engine> => (await fetch(`${engine}?id=${id}&status=stopped`)).json();
+export const stopEngine = async (id: number): Promise<Engine> =>
+    (await fetch(`${engine}?id=${id}&status=stopped`)).json();
 
 export const drive = async (id: number): Promise<{ success: boolean }> => {
     const res = await fetch(`${engine}/id=${id}&status=drive`).catch();
     return res.status !== 200 ? { success: false } : { ...(await res.json()) };
 };
 
-export const getSortOrder = (sort?: number | null, order?: string | null): string => {
-    return sort && order ? `&_sort=${sort}&_order=${order}` : '';
-};
+export const getSortOrder = (sort?: number | null, order?: string | null): string =>
+    sort && order ? `&_sort=${sort}&_order=${order}` : '';
 
 export const getWinners = async (page: number, sort?: number, order?: string, limit = 10): Promise<Winners> => {
     const response = await fetch(`${garage}?_page=${page}&_limit=${limit}${getSortOrder(sort, order)}`);
@@ -97,8 +98,8 @@ export const updateWinner = async (id: number, body: Record<string, unknown>): P
     ).json();
 };
 
-export const deleteWinner = async (id: number): Promise<void> => 
-  (await fetch(`${winners}/${id}`, { method: 'DELETE' })).json();
+export const deleteWinner = async (id: number): Promise<void> =>
+    (await fetch(`${winners}/${id}`, { method: 'DELETE' })).json();
 
 export const saveWinner = async (id: number, time: number) => {
     const winnerStatus = await getWinnerStatus(id);

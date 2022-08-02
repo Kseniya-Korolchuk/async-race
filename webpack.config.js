@@ -7,7 +7,7 @@ const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
-    entry: './src/index.ts',
+    entry: ['webpack-dev-server/client?http://localhost:8080/','./src/index.ts'],
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'index.js',

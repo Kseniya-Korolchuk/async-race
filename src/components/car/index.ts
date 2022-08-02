@@ -104,14 +104,19 @@ l-15 -73 3006 7 c1653 4 3007 8 3009 9 1 1 -8 37 -20 81 -19 67 -22 105 -22
 </svg>`;
 
 export const renderCar = ({
-    id, name, color, isEngineStarted
-  }: 
-  {
-    id: string; name: string; color: string; isEngineStarted: boolean;
-  }): string => 
-  `<div class="car__btns_select-wrapper">
+    id,
+    name,
+    color,
+    isEngineStarted,
+}: {
+    id: string;
+    name: string;
+    color: string;
+    isEngineStarted: boolean;
+}): string =>
+    `<div class="car__btns_select-wrapper">
     <button class="main__button button_select" id="button_select-${id}">SELECT</button>
-    <button class="main__button" id="button_remove-${id}">REMOVE</button>
+    <button class="main__button button_remove" id="button_remove-${id}">REMOVE</button>
     <span class="car__model">${name}</span>
   </div>
   <div class="car__strip">

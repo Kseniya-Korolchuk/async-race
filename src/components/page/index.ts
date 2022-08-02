@@ -1,8 +1,8 @@
 import './index.css';
 import { renderGarage } from '../garage';
 
-export const renderPage = (): void => {
-  const mainPageMarkup = `
+const renderPage = (): void => {
+    const mainPageMarkup = `
   <div class="wrapper">
     <main class="main" id="page_garage">
       <div class="main__setup">
@@ -37,8 +37,10 @@ export const renderPage = (): void => {
       <div id="page_winners" class="winners-page">renderWinners()}</div>
     </main>
   </div>
-  `; 
-  const app = document.createElement('div');
-  app.innerHTML = mainPageMarkup;
-  document.body.appendChild(app);
+  `;
+    const app = document.createElement('div');
+    app.innerHTML = mainPageMarkup;
+    document.body.appendChild(app);
 };
+
+export default renderPage;

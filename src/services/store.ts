@@ -6,14 +6,14 @@ const { items: winners, count: winnersCount } = await getWinners(1);
 const animation: { [key: number]: { id: number } } = {};
 
 export default {
-  carsPage: 1,
-  winnersPage: 1,
-  cars,
-  carsCount,
-  winners,
-  winnersCount,
-  animation,
-  view: 'garage',
-  sortBy: '',
-  sortOrder: '',
+    carsPage: 1,
+    winnersPage: 1,
+    cars,
+    carsCount,
+    winners,
+    winnersCount,
+    animation,
+    view: 'garage',
+    sortBy: '',
+    sortOrder: '',
 };
