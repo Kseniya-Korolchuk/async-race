@@ -1,5 +1,6 @@
 import { getCars } from '../../services/api';
 import store from '../../services/store';
+import { start, stop } from '../../utils/driving';
 import { renderCar } from '../car';
 
 export const renderGarage = (): string => `
@@ -22,21 +23,20 @@ export const updateGarage = async (): Promise<void> => {
     PREV_BTN.disabled = store.carsPage <= 1;
 };
 
-/* (function () {
-  const root = document.querySelector('#root') as HTMLBodyElement;
+(() => {
+    const root = document.querySelector('body') as HTMLBodyElement;
 
-  root.addEventListener('click', async event => {
-    const target = <HTMLElement>event.target;
-  
-    if (target.classList.contains('start-engine-btn')) {
-      const id = Number(target.id.split('start-engine-car-')[1]);
-      startDriving(id);
-    }
-  
-    if (target.classList.contains('stop-engine-btn')) {
-      const id = Number(target.id.split('stop-engine-car-')[1]);
-      stopDriving(id);
-    }
-  });
-  
-}()); */
+    root.addEventListener('click', async (event) => {
+        const target = <HTMLElement>event.target;
+
+        if (target.classList.contains('button_start')) {
+            const id = Number(target.id.split('button_start-')[1]);
+            start(id);
+        }
+
+        if (target.classList.contains('button_stop')) {
+            const id = Number(target.id.split('button_stop-')[1]);
+            stop(id);
+        }
+    });
+})();

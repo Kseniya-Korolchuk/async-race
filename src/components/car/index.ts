@@ -130,9 +130,9 @@ export const renderCar = ({
       </div>
     </div>
       <div class="car__engine-mod-wrapper">
-        <button class="main__button" id="button_start-${id}" 
+        <button class="main__button button_start" id="button_start-${id}" 
           ${isEngineStarted ? 'disabled' : ''}>START</button>
-        <button class="main__button" id="button_stop-${id}" 
+        <button class="main__button button_stop" id="button_stop-${id}" 
           ${!isEngineStarted ? 'disabled' : ''}>STOP</button>
       </div>
     </div>
