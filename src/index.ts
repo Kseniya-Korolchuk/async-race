@@ -7,7 +7,7 @@ import generateCars from './utils/generateCars';
 import store from './services/store';
 import { race } from './utils/race';
 import { start, stop } from './utils/driving';
-import { renderWinners, updateWinners } from './components/winners';
+import { renderWinners, setSortOrder, updateWinners } from './components/winners';
 
 let selectedCar: { name: string; color: string; id: number };
 
@@ -236,5 +236,12 @@ elements.body.addEventListener('click', async (event) => {
 
     if (target.classList.contains('button_next')) {
         getNextPage();
+    }
+    if (target.classList.contains('button_wins')) {
+        setSortOrder('wins');
+    }
+
+    if (target.classList.contains('button_time')) {
+        setSortOrder('time');
     }
 });

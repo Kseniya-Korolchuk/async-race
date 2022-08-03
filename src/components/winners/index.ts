@@ -11,11 +11,11 @@ export const renderWinners = (): string => `
   <th>№</th>
   <th>Car</th>
   <th>Model</th>
-      <th class="winners__button table-wins 
-      ${store.sortBy === 'wins' ? store.sortOrder : ''}	id="sort-by-wins"><span>Wins</span></th>
-      <th class="winners__button table-time ${
+      <th class="winners__button
+      ${store.sortBy === 'wins' ? store.sortOrder : ''}	id="sort-by-wins"><span class="button_wins">Wins</span></th>
+      <th class="winners__button ${
           store.sortBy === 'time' ? store.sortOrder : ''
-      }	id="sort-by-time"><span>Best time (sec)</span></th>
+      }	id="sort-by-time"><span class="button_time">Best time (sec)</span></th>
   </tr>
         ${store.winners
             .map(
