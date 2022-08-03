@@ -57,10 +57,20 @@ export const driveStatus = async (id: number): Promise<{ success: boolean }> => 
     return res.status !== 200 ? { success: false } : { ...(await res.json()) };
 };
 
-export const getSortOrder = (sort?: number | null, order?: string | null): string =>
+export const getSortOrder = (sort?: string | null, order?: string | null): string =>
     sort && order ? `&_sort=${sort}&_order=${order}` : '';
 
-export const getWinners = async (page: number, sort?: number, order?: string, limit = 10): Promise<Winners> => {
+export const getWinners = async ({
+    page,
+    limit = 10,
+    sort,
+    order,
+}: {
+    page: number;
+    limit?: number;
+    sort?: string;
+    order?: string;
+}): Promise<Winners> => {
     const response = await fetch(`${garage}?_page=${page}&_limit=${limit}${getSortOrder(sort, order)}`);
     const items = await response.json();
 

@@ -7,11 +7,36 @@ import generateCars from './utils/generateCars';
 import store from './services/store';
 import { race } from './utils/race';
 import { start } from './utils/driving';
+import { renderWinners, updateWinners } from './components/winners';
 
 let selectedCar: { name: string; color: string; id: number };
 
 renderPage();
 await updateGarage();
+
+const toWinnersView = async () => {
+    const garagePage = document.querySelector('.main__view-garage') as HTMLDivElement;
+    const winnersPage = document.querySelector('.main__view-winners') as HTMLDivElement;
+
+    winnersPage.style.display = 'block';
+    garagePage.style.display = 'none';
+
+    await updateWinners();
+
+    store.view = 'winners';
+    winnersPage.innerHTML = renderWinners();
+};
+
+const toGarageView = async () => {
+    const garagePage = document.querySelector('.main__view-garage') as HTMLDivElement;
+    const winnersPage = document.querySelector('.main__view-winners') as HTMLDivElement;
+
+    await updateGarage();
+
+    store.view = 'garage';
+    garagePage.style.display = 'block';
+    winnersPage.style.display = 'none';
+};
 
 const select = async (target: HTMLElement) => {
     const newName = document.getElementById('input__update-name') as HTMLInputElement;
@@ -137,6 +162,13 @@ const onRace = async (event: MouseEvent) => {
 
 elements.body.addEventListener('click', async (event) => {
     const target = <HTMLElement>event.target;
+    if (target.classList.contains('button_winners')) {
+        toWinnersView();
+    }
+
+    if (target.classList.contains('button_garage')) {
+        toGarageView();
+    }
 
     if (target.classList.contains('button_select')) {
         select(target);

@@ -1,6 +1,6 @@
 import './index.css';
 
-export const сarImg = (color: string): string => `
+export const carImg = (color: string): string => `
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 width="1280.000000pt" height="640.000000pt" viewBox="0 0 1280.000000 640.000000"
 preserveAspectRatio="xMidYMid meet">
@@ -123,7 +123,7 @@ export const renderCar = ({
     <div class="car__controls-wrapper">
     <div class="car__way">
       <div class="main__car" id="car-${id}">
-        ${сarImg(color)}
+        ${carImg(color)}
       </div>
       <div class="finish" id="finish-${id}">
         <img src="https://cdn-icons-png.flaticon.com/512/2149/2149431.png" alt="">

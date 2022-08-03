@@ -1,0 +1,39 @@
+.winners__img-car svg {
+  width: 80px;
+  height: 50px;
+}
+
+th, 
+td {
+  width: 110px;
+  text-align: left;
+  font-size: 24px;
+}
+
+th:last-of-type {
+  width: 200px;
+}
+
+th:first-of-type {
+  width: 50px;
+}
+
+td {
+  font-size: 20px;
+}
+
+.winners__button span{
+  padding: 5px;
+  background-color: gray;
+  border: 5px solid #000000;
+  cursor: pointer;
+}
+
+.winners__button span:hover {
+  color: aqua;
+}
+
+.winners__button span:active {
+  padding: 3px;
+  border: 7px solid #000000;
+}

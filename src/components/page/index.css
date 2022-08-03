@@ -24,6 +24,15 @@ body {
 
 }
 
+.main__view-switcher {
+  padding: 20px 0 30px;
+} 
+
+.button_garage,
+.button_winners {
+  background-color: lightgreen;
+}
+
 .main__controls-view {
 
 }
@@ -57,10 +66,6 @@ body {
 }
 
 .main__win-message {
-
-}
-
-.hidden {
 
 }
 
