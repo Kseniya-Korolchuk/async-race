@@ -6,7 +6,7 @@ import elements from './utils/elements';
 import generateCars from './utils/generateCars';
 import store from './services/store';
 import { race } from './utils/race';
-import { start } from './utils/driving';
+import { start, stop } from './utils/driving';
 import { renderWinners, updateWinners } from './components/winners';
 
 let selectedCar: { name: string; color: string; id: number };
@@ -171,6 +171,7 @@ const getNextPage = async () => {
 const onRace = async (event: MouseEvent) => {
     const raceBtn = <HTMLButtonElement>event.target;
     const winMessage = document.getElementById('win-message') as HTMLElement;
+    winMessage.style.display = 'none';
 
     raceBtn.disabled = true;
 
@@ -179,12 +180,24 @@ const onRace = async (event: MouseEvent) => {
 
     const winner = await race(start);
     winMessage.innerHTML = `${winner.name} win for ${winner.time} secs!`;
-    winMessage.classList.remove('hidden');
+    winMessage.style.display = 'block';
     await saveWinner(winner);
 
     setTimeout(() => {
-        winMessage.classList.add('hidden');
-    }, 3000);
+        winMessage.style.display = 'none';
+    }, 5000);
+};
+
+const reset = async (event: MouseEvent) => {
+    const resetBtn = <HTMLButtonElement>event.target;
+
+    resetBtn.disabled = true;
+
+    store.cars.map(({ id }) => stop(id));
+    const winMessage = document.getElementById('win-message') as HTMLElement;
+    winMessage.style.display = 'none';
+    const raceBtn = document.getElementById('button_race') as HTMLButtonElement;
+    raceBtn.disabled = false;
 };
 
 elements.body.addEventListener('click', async (event) => {
@@ -207,6 +220,10 @@ elements.body.addEventListener('click', async (event) => {
 
     if (target.classList.contains('button_race')) {
         onRace(event);
+    }
+
+    if (target.classList.contains('button_reset')) {
+        reset(event);
     }
 
     if (target.classList.contains('button_generate')) {

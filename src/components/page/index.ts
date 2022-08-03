@@ -24,13 +24,13 @@ const renderPage = (): void => {
           </form>
           <div class="main__controls-game">
             <button class="main__button button_race" id="button_race">RACE</button>
-            <button class="main__button" id="button_reset">RESET</button>
+            <button class="main__button button_reset" id="button_reset">RESET</button>
             <button class="main__button button_generate" id="button_generate-cars">GENERATE CARS</button>
           </div>
         </div>
         <div class="main__garage">${renderGarage()}</div>
         <div class="main__win-message">
-          <p class="hidden" id="win-message"></p>
+          <p style="display: none" id="win-message"></p>
         </div>
       </div>
       <div class="main__view-winners" id="page_winners" style="display: none">${renderWinners()}</div>
