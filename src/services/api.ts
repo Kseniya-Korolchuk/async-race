@@ -71,7 +71,7 @@ export const getWinners = async ({
     sort?: string;
     order?: string;
 }): Promise<Winners> => {
-    const response = await fetch(`${garage}?_page=${page}&_limit=${limit}${getSortOrder(sort, order)}`);
+    const response = await fetch(`${winners}?_page=${page}&_limit=${limit}${getSortOrder(sort, order)}`);
     const items = await response.json();
 
     return {
@@ -111,7 +111,7 @@ export const updateWinner = async (id: number, body: Record<string, unknown>): P
 export const deleteWinner = async (id: number): Promise<void> =>
     (await fetch(`${winners}/${id}`, { method: 'DELETE' })).json();
 
-export const saveWinner = async (id: number, time: number) => {
+export const saveWinner = async ({ id, time }: { id: number; time: number }) => {
     const winnerStatus = await getWinnerStatus(id);
 
     if (winnerStatus === 404) {

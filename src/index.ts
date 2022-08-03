@@ -1,6 +1,6 @@
 import './style.css';
 import renderPage from './components/page';
-import { createCar, deleteCar, deleteWinner, getCar, updateCar } from './services/api';
+import { createCar, deleteCar, deleteWinner, getCar, saveWinner, updateCar } from './services/api';
 import { renderGarage, updateGarage } from './components/garage';
 import elements from './utils/elements';
 import generateCars from './utils/generateCars';
@@ -132,6 +132,15 @@ const getPrevPage = async () => {
             garage.innerHTML = renderGarage();
             break;
         }
+
+        case 'winners': {
+            store.winnersPage -= 1;
+            await updateWinners();
+            const winners = document.querySelector('.main__view-winners') as HTMLDivElement;
+
+            winners.innerHTML = renderWinners();
+            break;
+        }
         default:
     }
 };
@@ -146,18 +155,36 @@ const getNextPage = async () => {
             garage.innerHTML = renderGarage();
             break;
         }
+
+        case 'winners': {
+            store.winnersPage += 1;
+            await updateWinners();
+            const winners = document.querySelector('.main__view-winners') as HTMLDivElement;
+
+            winners.innerHTML = renderWinners();
+            break;
+        }
         default:
     }
 };
 
 const onRace = async (event: MouseEvent) => {
     const raceBtn = <HTMLButtonElement>event.target;
+    const winMessage = document.getElementById('win-message') as HTMLElement;
+
     raceBtn.disabled = true;
 
     const resetBtn = document.getElementById('button_reset') as HTMLButtonElement;
     resetBtn.disabled = false;
 
     const winner = await race(start);
+    winMessage.innerHTML = `${winner.name} win for ${winner.time} secs!`;
+    winMessage.classList.remove('hidden');
+    await saveWinner(winner);
+
+    setTimeout(() => {
+        winMessage.classList.add('hidden');
+    }, 3000);
 };
 
 elements.body.addEventListener('click', async (event) => {

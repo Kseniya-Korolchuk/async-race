@@ -61,6 +61,6 @@ export const setSortOrder = async (sortBy: string): Promise<void> => {
     store.sortBy = sortBy;
 
     await updateWinners();
-    const winnersPage = document.getElementById('winners-page') as HTMLDivElement;
+    const winnersPage = document.querySelector('.main__view-winners') as HTMLDivElement;
     winnersPage.innerHTML = renderWinners();
 };

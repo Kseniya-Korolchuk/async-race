@@ -29,11 +29,11 @@ const renderPage = (): void => {
           </div>
         </div>
         <div class="main__garage">${renderGarage()}</div>
-        <div>
-          <p class="main__win-message hidden" id="win-message"></p>
+        <div class="main__win-message">
+          <p class="hidden" id="win-message"></p>
         </div>
       </div>
-      <div class="main__view-winners" id="page_winners">${renderWinners()}</div>
+      <div class="main__view-winners" id="page_winners" style="display: none">${renderWinners()}</div>
       <div class="main__pagination">
         <button class="main__button button_prev" id="button_prev">PREV</button>
         <button class="main__button button_next" id="button_next">NEXT</button>
