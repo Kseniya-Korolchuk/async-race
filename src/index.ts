@@ -5,6 +5,8 @@ import { renderGarage, updateGarage } from './components/garage';
 import elements from './utils/elements';
 import generateCars from './utils/generateCars';
 import store from './services/store';
+import { race } from './utils/race';
+import { start } from './utils/driving';
 
 let selectedCar: { name: string; color: string; id: number };
 
@@ -123,6 +125,16 @@ const getNextPage = async () => {
     }
 };
 
+const onRace = async (event: MouseEvent) => {
+    const raceBtn = <HTMLButtonElement>event.target;
+    raceBtn.disabled = true;
+
+    const resetBtn = document.getElementById('button_reset') as HTMLButtonElement;
+    resetBtn.disabled = false;
+
+    const winner = await race(start);
+};
+
 elements.body.addEventListener('click', async (event) => {
     const target = <HTMLElement>event.target;
 
@@ -132,6 +144,10 @@ elements.body.addEventListener('click', async (event) => {
 
     if (target.classList.contains('button_remove')) {
         remove(target);
+    }
+
+    if (target.classList.contains('button_race')) {
+        onRace(event);
     }
 
     if (target.classList.contains('button_generate')) {

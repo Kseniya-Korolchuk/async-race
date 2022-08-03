@@ -37,3 +37,10 @@ export type DrivingStatus = {
     id: number;
     time: number;
 };
+
+export type Race = {
+    name: string;
+    color: string;
+    id: number;
+    time: number;
+};

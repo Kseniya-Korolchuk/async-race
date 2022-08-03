@@ -21,7 +21,7 @@ const renderPage = (): void => {
           <button class="main__button" type="submit" id="button_update" disabled >UPDATE</button>
         </form>
         <div class="main__controls-game">
-          <button class="main__button" id="button_race">RACE</button>
+          <button class="main__button button_race" id="button_race">RACE</button>
           <button class="main__button" id="button_reset">RESET</button>
           <button class="main__button button_generate" id="button_generate-cars">GENERATE CARS</button>
         </div>
