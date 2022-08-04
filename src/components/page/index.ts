@@ -4,7 +4,6 @@ import { renderWinners } from '../winners';
 
 const renderPage = (): void => {
     const mainPageMarkup = `
-  <div class="wrapper">
     <main class="main" id="page_garage">
       <div class="main__view-switcher">
           <button class="main__button button_garage" id="button_garage">TO GARAGE</button>
@@ -39,9 +38,9 @@ const renderPage = (): void => {
         <button class="main__button button_next" id="button_next">NEXT</button>
       </div>
     </main>
-  </div>
   `;
     const app = document.createElement('div');
+    app.classList.add('wrapper');
     app.innerHTML = mainPageMarkup;
     document.body.appendChild(app);
 };

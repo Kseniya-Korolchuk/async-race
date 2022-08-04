@@ -1,28 +1,4 @@
-* {
-  box-sizing: border-box;
-}
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background-color: black;
-}
-
-.wrapper {
-
-}
-
-.main {
-
-}
-
-.main__setup {
-
-}
 
 .main__view-switcher {
   padding: 20px 0 30px;
@@ -31,38 +7,6 @@ body {
 .button_garage,
 .button_winners {
   background-color: lightgreen;
-}
-
-.main__controls-view {
-
-}
-
-.main__button {
-
-}
-
-.main__form {
-
-}
-
-.main__input {
-
-}
-
-.color {
-
-}
-
-.input {
-
-}
-
-.main__controls-game {
-
-}
-
-.main__garage {
-
 }
 
 .main__win-message {
@@ -89,10 +33,39 @@ body {
   display: none;
 }
 
-.main__pagination {
-
+.main {
+  padding: 15px 50px;
 }
 
-.winners-page {
+@media (max-width: 768px) {
+  .main {
+    padding: 15px 15px 15px 15px;
+  }
+}
 
+.main__setup {
+  flex-direction: column;
+  display: flex;
+  row-gap: 10px;
+}
+
+.main__form {
+ display: flex;
+ align-items: center;
+ gap: 5px;
+}
+
+.main__color {
+ width: 20px;
+ height: 22px;
+ border: 0;
+ padding: 0;
+}
+
+input[type="color" i]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.main__pagination {
+  margin-top: 40px;
 }
