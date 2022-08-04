@@ -2,7 +2,7 @@ import { SimpleCar } from './types';
 
 const hex = '0123456789abcdef';
 const brands = ['Ford', 'Tesla', 'Audi', 'Peugeot', 'Alfa-Romeo', 'Volkswagen', 'Honda', 'BMW', 'Volvo', 'Toyota'];
-const models = ['Mustang', 'Model S', 'Q7', '3008', 'GTV6', 'Golf GTI', 'CV-R', 'x1', 'XC90', 'Venza'];
+const models = ['Mustang', 'Model S', 'Q7', '3008', 'GTV6', 'Golf GTI', 'CR-V', 'x1', 'XC90', 'Venza'];
 
 const getRandomName = () => {
     const brand = brands[Math.floor(Math.random() * brands.length)];
