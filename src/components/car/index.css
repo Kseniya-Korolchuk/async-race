@@ -1,0 +1,32 @@
+.main__car svg{
+  width: 100px;
+  height: 50px;
+}
+
+.finish img {
+  height: 50px;
+}
+
+.finish {
+  margin-left: auto;
+  margin-right: 100px;
+}
+
+.car__way {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px dashed white;
+}
+
+.car__engine-mod-wrapper {
+  padding: 15px 0 30px 0;
+}
+
+.car__btns_select-wrapper {
+  padding-bottom: 15px;
+}
+
+.car__model {
+  color: white;
+}

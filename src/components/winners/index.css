@@ -1,0 +1,94 @@
+.winners__img-car > svg {
+  width: 60px;
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .winners__img-car svg {
+    width: 50px;
+  }
+}
+
+th, 
+td {
+  width: 110px;
+  text-align: left;
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  th {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 599px) {
+  th {
+    font-size: 16px;
+  }
+}
+
+th:last-of-type,
+td:last-of-type {
+  width: 200px;
+  text-align: center;
+}
+
+th:first-of-type,
+td:first-of-type {
+  width: 50px;
+}
+
+th:nth-of-type(4),
+td:nth-of-type(4) {
+  text-align: center;
+}
+
+th:nth-of-type(2),
+td:nth-of-type(2) {
+  width: 80px;
+}
+
+td {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+ td {
+  font-size: 16px;
+ }
+}
+
+@media (max-width: 599px) {
+  td {
+   font-size: 14px;
+  }
+ }
+
+.winners__button span{
+  padding: 5px;
+  background-color: gray;
+  border: 5px solid #000000;
+  cursor: pointer;
+}
+
+.winners__button span:hover {
+  color: aqua;
+}
+
+.winners__button span:active {
+  padding: 3px;
+  border: 7px solid #000000;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 600px;
+  margin-bottom: 40px;
+}
+
+tr:first-of-type {
+  margin-bottom: 10px;
+}
